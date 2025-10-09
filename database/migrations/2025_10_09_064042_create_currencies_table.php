@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('curency_name');
             $table->string('curency_symbol');
             $table->string('curency_code');
+            $table->string('exchange_rate');
             $table->timestamps();
         });
     }

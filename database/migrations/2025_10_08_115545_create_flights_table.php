@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('smothing-allowed')->nullable();
             $table->string('flight_availality')->nullable();
             $table->string('date_time_departure')->nullable();
+      
             $table->string('tot_available_seat_bs_cl')->nullable();//business class
             $table->string('tot_available_seat_ec_cl')->nullable();//economic class
             $table->string('booked_seat_ec_cl')->nullable();//economic class

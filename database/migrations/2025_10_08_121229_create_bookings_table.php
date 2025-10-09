@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Flights;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -18,8 +19,11 @@ return new class extends Migration
             $table->foreignIdFor(Flights::class);
             $table->string('departure_time');
             $table->string('attival_time');
-            $table->string('tax_in_destination');
-            $table->string('flight_price');
+            $table->string('tax_in_origin')->nullable();
+            $table->string('tax_in_destination')->nullable();
+            $table->string('price')->nullable();
+            $table->string('total_price')->nullable();
+            $table->foreignIdFor(Currency::class)->constrained()->onDelete('cascade');
             $table->enum('status',['booked','cancelled','scratched'])->default('scratched');
             $table->timestamps();
         });
